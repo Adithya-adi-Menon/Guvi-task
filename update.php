@@ -1,7 +1,8 @@
 <?php
+session_start();
 include_once("dbconfig.php");
 
-    $email=$_POST['email'];
+    $email=$_SESSION["email"];
 	$age = $_POST['age'];
 	$dob = $_POST['dob'];
 	$contact = $_POST['contact'];

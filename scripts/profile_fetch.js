@@ -12,7 +12,7 @@ $(document).ready(function () {
             <label for="f-name">Username</label>
         </div>
         <div class="col-2">
-            <input type="text" id="f-name" name="" placeholder="Username" value="${value['username']}" />
+            <input type="text" id="f-name" name="" placeholder="Username" value="${value['username']}" disabled />
         </div>
     </div>
     <div class="group">
@@ -20,7 +20,7 @@ $(document).ready(function () {
         <label for="l-name">Email</label>
     </div>
     <div class="col-2">
-        <input type="text" id="l-name" placeholder="Email" value="${value['email']}" />
+        <input type="text" id="l-name" placeholder="Email" value="${value['email']}" disabled />
     </div>
 </div>
 <!-- Password -->
@@ -29,7 +29,7 @@ $(document).ready(function () {
         <label for="password">Age</label>
     </div>
     <div class="col-2">
-        <input type="text" id="password" placeholder="Age" value="${value['age']}" />
+        <input type="text" id="password" placeholder="Age" value="${value['age']}" disabled />
     </div>
 </div>
 <!-- Email -->
@@ -38,7 +38,7 @@ $(document).ready(function () {
         <label for="email">Dob</label>
     </div>
     <div class="col-2">
-        <input type="date" id="email" placeholder="Dob" value="${value['dob']}" />
+        <input type="date" id="email" placeholder="Dob" value="${value['dob']}" disabled/>
     </div>
 </div>
 <div class="group">
@@ -46,7 +46,7 @@ $(document).ready(function () {
         <label for="email">Contact</label>
     </div>
     <div class="col-2">
-        <input type="phone" id="email" placeholder="contact" value="${value['contact']}"/>
+        <input type="phone" id="email" placeholder="contact" value="${value['contact']}" disabled/>
     </div>
 </div>
 
