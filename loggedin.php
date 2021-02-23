@@ -38,8 +38,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         while ($row = mysqli_fetch_array($res1)) {
      
     ?>
-    <h6><?php echo "<script>window.localStorage.getItem('email');</script> ";?></h6>
+    <div id="Welcome"></div>
 <div class="group">
+
         <div class="col-1">
             <label for="f-name">Username</label>
         </div>
@@ -92,13 +93,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </form>
 
    
-   
+  
 
     <!-- Submit button -->
     
 
     <div id="Message"></div>
 <div id="Login"></div>
+<script>
+    if (localStorage.email) {
+        document.getElementById('Welcome').innerHTML += " Logged in as " + localStorage.getItem('email');
+    } else {
+        document.getElementById('WelcomeN').innerHTML += " Log in Please!!" ;
+    }
+</script>
 </body>
 </html>
 <?php
