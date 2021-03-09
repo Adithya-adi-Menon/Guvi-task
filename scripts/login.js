@@ -14,7 +14,7 @@ $(document).ready(function() {
                 success: function(response) {
                     if (response == "LoginSuccess") {
                         var lEmail = localStorage.setItem('email', user_email);
-                        window.location.href = "loggedin.php";
+                        window.location.href = "loggedin.html";
                     } else if (response == "Fail") {
                         $('#message1').text("Username or password is incorrect");
                     }
