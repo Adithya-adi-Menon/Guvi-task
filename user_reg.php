@@ -8,9 +8,13 @@ include_once("dbconfig.php");
     $age='';
     $dob='';
     $contact='';
-	$sql = "SELECT * FROM login WHERE email='$user_email'";
-	$resultset = mysqli_query($conn, $sql) ;
-	$row = mysqli_fetch_assoc($resultset);
+	$sql = "SELECT * FROM login WHERE email=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s",$user_email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+	
+	$row = $result->fetch_assoc();
 	if(!isset($row['email'])){
 		$stmt = $conn->prepare("INSERT INTO login (username, email,password,age,dob,contact) VALUES (?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param("ssssss", $user_name, $user_email, $user_password,$age,$dob,$contact);
@@ -24,10 +28,12 @@ include_once("dbconfig.php");
    
     
         $sql = "SELECT username,email FROM login ";
-        $res = mysqli_query($conn, $sql);
-        if(mysqli_num_rows($res) > 0){
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if(mysqli_num_rows($result) > 0){
             $result_array = array();
-            while($row = mysqli_fetch_assoc($res)){
+            while($row = $result->fetch_assoc()){
                 array_push($result_array, $row);
             }
             $final_data = json_encode($result_array);

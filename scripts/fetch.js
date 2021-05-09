@@ -8,7 +8,6 @@ $(document).ready(function () {
             $.each(data, function (key, value) {
                 string += `
                 <div class="group">
-
         <div class="col-1">
             <label for="f-name">Username</label>
         </div>
@@ -50,7 +49,6 @@ $(document).ready(function () {
         <input type="phone" id="email" name="contact" placeholder="contact" value="${value['contact']}"/>
     </div>
 </div>
-
                 `;
             });
             $('#Welcome').append(string);
